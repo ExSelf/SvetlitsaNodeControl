@@ -6,24 +6,24 @@
 */
 
 #include "Arduino.h"
+
+#ifdef ESP32
+  #include <WiFi.h>
+#elif ESP8266
+  #include <ESP8266WiFi.h>
+#endif
+
+#include <FastLED.h>
 #include "SNC.h"
 
-/*
-SNC::SNC(int pin)
+SNC::SNC(int pin, int numLeds)
 {
   _pin = pin;
+  _numLeds = numLeds;
 }
 
 void SNC::begin()
 {
-  pinMode(_pin, OUTPUT);
+  CRGB leds[_numLeds];
+  FastLED.addLeds<WS2812, _pin, GRB>(leds, _numLeds);
 }
-
-void SNC::dot()
-{
-  digitalWrite(_pin, HIGH);
-  delay(250);
-  digitalWrite(_pin, LOW);
-  delay(250);  
-}
-*/

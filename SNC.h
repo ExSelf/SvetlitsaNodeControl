@@ -8,18 +8,13 @@
 #ifndef SNC_h
 #define SNC_h
 
-#include "Arduino.h"
-
-//class SNC
-//{
-//  public:
-//    SNC(int pin);
-//    void begin();
-//    void dot();
-//    void dash();
-//  private:
-//    int _pin;
-//};
-
+class SNC
+{
+  public:
+    SNC(int pin, int numLeds);
+    void begin();
+  private:
+    int _pin;
+};
 #endif
 
